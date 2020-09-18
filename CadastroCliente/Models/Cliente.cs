@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace CadastroCliente.Models
         [StringLength(11, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 10)]
         public string Telefone { get; set; }
 
+        [Display(Name = "Tipo de Cliente")]
         public TipoCliente TipoCliente { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
