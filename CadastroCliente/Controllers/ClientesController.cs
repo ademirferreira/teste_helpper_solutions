@@ -48,17 +48,13 @@ namespace CadastroCliente.Controllers
         {
             return View();
         }
-
-        // POST: Clientes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,Documento,Email,Telefone,TipoCliente,Cep,Logradouro,Numero,Complemento,Bairro,Cidade,Estado,Id")] Cliente cliente)
+        public async Task<IActionResult> Create(Cliente cliente)
         {
             if (ModelState.IsValid)
-            {
-                cliente.Id = Guid.NewGuid();
+            {                
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -82,12 +78,10 @@ namespace CadastroCliente.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Nome,Documento,Email,Telefone,TipoCliente,Cep,Logradouro,Numero,Complemento,Bairro,Cidade,Estado,Id")] Cliente cliente)
+        public async Task<IActionResult> Edit(Guid id, Cliente cliente)
         {
             if (id != cliente.Id)
             {

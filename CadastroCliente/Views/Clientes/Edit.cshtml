@@ -34,8 +34,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="TipoCliente" class="control-label"></label>
-                <select asp-for="TipoCliente" class="form-control"></select>
-                <span asp-validation-for="TipoCliente" class="text-danger"></span>
+                <div>
+                  <input type="radio" value="1" asp-for="TipoCliente" checked="@((int)Model.TipoCliente == 1)" /> Pessoa Física
+                  <input type="radio" value="2" asp-for="TipoCliente" checked="@((int)Model.TipoCliente == 2)" /> Pessoa Jurídica
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Cep" class="control-label"></label>
